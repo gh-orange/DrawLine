@@ -1,4 +1,4 @@
-# 直线绘制算法 #
+﻿# 直线绘制算法 #
 
 *本文介绍内容归属计算机图形学范畴，基于二维平面直角坐标系绘制*
 
@@ -54,7 +54,7 @@
 	#include <gl\glut.h>
 	#include <math.h>
 */
-void drawLine(GLint x1, GLint y1, GLint x2, GLint y2)
+void drawLineDDA(GLint x1, GLint y1, GLint x2, GLint y2)
 {
 	glColor3f(1.0f, 0.0f, 0.0f);	//置颜色为红
 	int dx = x2 - x1;
@@ -69,13 +69,17 @@ void drawLine(GLint x1, GLint y1, GLint x2, GLint y2)
 	glBegin(GL_POINTS);
 	for (int i = 0; i <= step; i++)
 	{
-		glVertex2f(x / 10.0, int(y + 0.5) / 10.0);	//int(y + 0.5)将y值四舍五入，绘制于标准化坐标系，故除以10
+		glVertex2f(x / 10.0, int(y + 0.5) / 10.0);	//int(y + 0.5)将y值四舍五入，绘制于标准化坐标系，故除以10.0
 		x = x + xin;
 		y = y + yin;
 	}
 	glEnd();
 }
 ```
+
+绘制结果如图（补上绿色网格，绿线交点为像素点，白块代表像素空隙（放大效果））
+
+![DDA算法效果图](DDA.png)
 
 ## 逐点比较算法（插补法） ##
 
