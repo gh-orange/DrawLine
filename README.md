@@ -116,8 +116,41 @@ void drawLineDDA(GLint x1, GLint y1, GLint x2, GLint y2)
 最终代码如下
 
 ```c
-
+/**
+使用openGL的glut库
+#include <gl\glut.h>
+#include <math.h>
+*/
+void drawLineInsert(GLint x1, GLint y1, GLint x2, GLint y2)
+{
+	glColor3f(1.0f, 0.0f, 0.0f);	//置颜色为红
+	int dx = x2 - x1;
+	int dy = y2 - y1;
+	int f = 0;
+	double x = x1;
+	double y = y1;
+	glBegin(GL_POINTS);
+	while (x < x2 + 1)
+	{
+		glVertex2f(x / 10.0, y / 10.0);	//绘制于标准化坐标系，故除以10.0
+		if (f >= 0)
+		{
+			x = x + 1;
+			f = f - dy;
+		}
+		else
+		{
+			y = y + 1;
+			f = f + dx;
+		}
+	}
+	glEnd();
+}
 ```
+
+绘制结果如图（补上黑色网格，蓝线为预期效果，绿点为可点亮像素点，白色部分代表像素空隙（放大效果））
+
+![插补法效果图](Insert.PNG)
 
 ## Bresenham算法 ##
 
@@ -173,6 +206,10 @@ void drawLineDDA(GLint x1, GLint y1, GLint x2, GLint y2)
 ```c
 
 ```
+
+绘制结果如图（补上黑色网格，蓝线为预期效果，绿点为可点亮像素点，白色部分代表像素空隙（放大效果））
+
+![Bresenham算法效果图](Bresenham.PNG)
 
 ---
 
