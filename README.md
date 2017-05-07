@@ -49,7 +49,32 @@
 最终代码如下
 
 ```c
-
+/**
+	使用openGL的glut库
+	#include <gl\glut.h>
+	#include <math.h>
+*/
+void drawLine(GLint x1, GLint y1, GLint x2, GLint y2)
+{
+	glColor3f(1.0f, 0.0f, 0.0f);	//置颜色为红
+	int dx = x2 - x1;
+	int dy = y2 - y1;
+	dx = abs(dx);
+	dy = abs(dy);
+	int step = dx > dy ? dx : dy;	//判断k与1的关系，若dx大，水平方向延伸为主；若dy大，垂直方向延伸为主
+	double xin = dx / step;	//x轴步长
+	double yin = dy / (double)step;	//y轴步长
+	double x = x1;
+	double y = y1;
+	glBegin(GL_POINTS);
+	for (int i = 0; i <= step; i++)
+	{
+		glVertex2f(x / 10.0, int(y + 0.5) / 10.0);	//int(y + 0.5)将y值四舍五入，绘制于标准化坐标系，故除以10
+		x = x + xin;
+		y = y + yin;
+	}
+	glEnd();
+}
 ```
 
 ## 逐点比较算法（插补法） ##
