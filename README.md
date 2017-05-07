@@ -232,8 +232,7 @@ void drawLineInsert(GLint x1, GLint y1, GLint x2, GLint y2)
 
 `e = e * dx + 2 * dy * dx - 2 * dx * dx`
 
-** `e` 初始值为 `e0 = 2 * (0 - 0.5) * (x1 - x0) = -(x1 - x0) = -dx` 
-**
+**`e` 初始值为 `e0 = 2 * (0 - 0.5) * (x1 - x0) = -(x1 - x0) = -dx`**
 
 **当 `e > dx` 时，`e = e + 2 * dy * dx - 2 * dx * dx`（即点亮右上方像素点）**
 
