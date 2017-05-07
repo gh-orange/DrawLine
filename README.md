@@ -69,7 +69,7 @@ void drawLineDDA(GLint x1, GLint y1, GLint x2, GLint y2)
 	glBegin(GL_POINTS);
 	for (int i = 0; i <= step; i++)
 	{
-		glVertex2f(x / 10.0, int(y + 0.5) / 10.0);	//int(y + 0.5)将y值四舍五入，绘制于标准化坐标系，故除以10.0
+		glVertex2f(x / 10.0, int(y + 0.5) / 10.0);	//int(y + 0.5)将y值四舍五入，绘于标准化坐标系，故除以10.0
 		x = x + xin;
 		y = y + yin;
 	}
