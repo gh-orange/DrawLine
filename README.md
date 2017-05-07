@@ -53,6 +53,8 @@
 	使用openGL的glut库
 	#include <gl\glut.h>
 	#include <math.h>
+	x1 = 0，y1 = 0
+	x2 = 6，y2 = 4
 */
 void drawLineDDA(GLint x1, GLint y1, GLint x2, GLint y2)
 {
