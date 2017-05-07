@@ -79,7 +79,7 @@ void drawLineDDA(GLint x1, GLint y1, GLint x2, GLint y2)
 
 绘制结果如图（补上绿色网格，绿线交点为像素点，白块代表像素空隙（放大效果））
 
-![DDA算法效果图](DDA.png)
+![DDA算法效果图](DDA.PNG)
 
 ## 逐点比较算法（插补法） ##
 
